@@ -692,6 +692,61 @@
                     navbar.classList.remove('scrolled');
                 }
             });
+
+            // Custom Cursor Spark Effect with Smooth Lerp Trailing & Click Pop
+            const spark = document.createElement('div');
+            spark.classList.add('cursor-spark');
+            document.body.appendChild(spark);
+
+            let mouseX = 0;
+            let mouseY = 0;
+            let sparkX = 0;
+            let sparkY = 0;
+            let isHovered = false;
+
+            // Track mouse position
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            // Smooth trailing animation loop
+            function animateSpark() {
+                sparkX += (mouseX - sparkX) * 0.2;
+                sparkY += (mouseY - sparkY) * 0.2;
+
+                spark.style.left = `${sparkX}px`;
+                spark.style.top = `${sparkY}px`;
+
+                requestAnimationFrame(animateSpark);
+            }
+            animateSpark();
+
+            // Hover expansion over interactive elements
+            const interactiveElements = document.querySelectorAll('a, button, .project-card, .contact-card, .skill-pill, .stat-card, .pillar-card');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    isHovered = true;
+                    spark.style.transform = 'translate(-50%, -50%) scale(2.2)';
+                    spark.style.opacity = '1';
+                });
+                el.addEventListener('mouseleave', () => {
+                    isHovered = false;
+                    spark.style.transform = 'translate(-50%, -50%) scale(1)';
+                    spark.style.opacity = '0.8';
+                });
+            });
+
+            // Subtle click pop effect
+            window.addEventListener('mousedown', () => {
+                spark.style.transform = 'translate(-50%, -50%) scale(1.8)';
+                spark.style.opacity = '1';
+            });
+
+            window.addEventListener('mouseup', () => {
+                spark.style.transform = isHovered ? 'translate(-50%, -50%) scale(2.2)' : 'translate(-50%, -50%) scale(1)';
+                spark.style.opacity = '0.8';
+            });
         });
     </script>
 </body>

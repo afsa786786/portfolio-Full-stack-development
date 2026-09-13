@@ -1,7 +1,8 @@
 /* ==========================================================================
    1. COLOR SYSTEM & DESIGN TOKENS (DARK & LIGHT MODE)
    ========================================================================== */
-:root, :root[data-theme="dark"] {
+:root,
+:root[data-theme="dark"] {
     --bg-main: #030712;
     --bg-section: #0b0f19;
     --text-primary: #f8fafc;
@@ -94,7 +95,13 @@ body.no-scroll {
     overflow: hidden;
 }
 
-h1, h2, h3, h4, h5, h6, .logo {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.logo {
     font-family: 'Outfit', sans-serif;
     font-weight: 700;
 }
@@ -141,7 +148,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
+    background-image:
         linear-gradient(var(--grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     background-size: 50px 50px;
@@ -151,8 +158,13 @@ section {
 }
 
 @keyframes gridMove {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(50px); }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(50px);
+    }
 }
 
 .bg-blur {
@@ -393,9 +405,20 @@ section {
 }
 
 @keyframes statusPulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-    70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
 }
 
 .status-text {
@@ -495,17 +518,34 @@ section {
 }
 
 @keyframes float {
-    from { transform: translate(-25%, -20%) scale(1); }
-    to { transform: translate(25%, 20%) scale(1.1); }
+    from {
+        transform: translate(-25%, -20%) scale(1);
+    }
+
+    to {
+        transform: translate(25%, 20%) scale(1.1);
+    }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.fade-in { animation: fadeInUp 0.8s ease forwards; }
-.slide-up { animation: fadeInUp 1s ease forwards; }
+.fade-in {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.slide-up {
+    animation: fadeInUp 1s ease forwards;
+}
 
 /* ==========================================================================
    6. ABOUT ME SECTION
@@ -813,9 +853,17 @@ section {
     border-radius: 50%;
 }
 
-.preview-header .red { background-color: #ef4444; }
-.preview-header .yellow { background-color: #f59e0b; }
-.preview-header .green { background-color: #10b981; }
+.preview-header .red {
+    background-color: #ef4444;
+}
+
+.preview-header .yellow {
+    background-color: #f59e0b;
+}
+
+.preview-header .green {
+    background-color: #10b981;
+}
 
 .preview-title {
     font-size: 0.75rem;
@@ -921,7 +969,8 @@ section {
 /* ==========================================================================
    9. ACHIEVEMENTS SECTION
    ========================================================================== */
-.achievements, .resume {
+.achievements,
+.resume {
     padding: 100px 10%;
 }
 
@@ -996,14 +1045,16 @@ section {
    10. CONTACT SECTION
    ========================================================================== */
 .contact {
-    padding: 100px 10%;
+    padding: 100px 4%;
 }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.8rem;
-    max-width: 1200px;
+    grid-template-columns: repeat(5, 1fr);
+    /* Forces all 5 cards into one single line */
+    gap: 20px;
+    max-width: 1400px;
+    /* Expanded slightly to comfortably fit 5 items */
     margin: 0 auto;
 }
 
@@ -1012,8 +1063,8 @@ section {
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     border: 1px solid var(--card-border);
-    border-radius: 24px;
-    padding: 2.2rem 1.5rem;
+    border-radius: 20px;
+    padding: 1.8rem 0.8rem;
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -1108,8 +1159,13 @@ section {
     .about-container {
         grid-template-columns: 1fr;
     }
+
     .hero-content h1 {
         font-size: 3.2rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -1117,10 +1173,11 @@ section {
     .navbar {
         padding: 1rem 5%;
     }
+
     .hamburger-btn {
         display: flex;
     }
-    
+
     /* Mobile Hamburger Menu Drawer */
     .nav-links {
         position: fixed;
@@ -1140,40 +1197,44 @@ section {
         transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
     }
-    
+
     .nav-links.active {
         right: 0;
     }
-    
+
     .nav-links a {
         font-size: 1.1rem;
         width: 100%;
     }
-    
+
     .hero {
         padding-top: 140px;
     }
-    
+
     .hero-content h1 {
         font-size: 2.6rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.05rem;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
-    
+
     .achievement-card {
         flex-direction: column;
         text-align: center;
         padding: 1.8rem;
     }
-    
+
     .achievement-card:hover {
         transform: translateY(-8px);
+    }
+
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1181,18 +1242,45 @@ section {
     .hero-content h1 {
         font-size: 2.2rem;
     }
+
     .hero-cta {
         flex-direction: column;
         width: 100%;
     }
+
     .btn {
         width: 100%;
         justify-content: center;
     }
+
     .project-actions {
         flex-direction: column;
     }
+
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   13. CUSTOM CURSOR SPARK EFFECT
+   ========================================================================== */
+.cursor-spark {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 12px var(--accent-color), 0 0 20px var(--accent-glow);
+    z-index: 9999;
+    transition: width 0.2s ease, height 0.2s ease, opacity 0.3s ease, transform 0.15s ease-out;
+    opacity: 0.8;
+}
+
+@media (pointer: coarse) {
+    .cursor-spark {
+        display: none !important;
     }
 }
